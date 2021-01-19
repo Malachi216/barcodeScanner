@@ -1,0 +1,21 @@
+{
+  "name": "scanrecord",
+  "version": "1.0.0",
+  "description": "Scan Record App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Olaoluwa Malachi",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "electron": "^11.2.0",
+    "js": "^0.1.0",
+    "leveldown": "^5.6.0",
+    "pouchdb-adapter-http": "^7.2.2",
+    "pouchdb-adapter-leveldb": "^7.2.2",
+    "rxdb": "^9.12.0",
+    "rxjs": "^6.6.3"
+  }
+}

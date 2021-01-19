@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>ScanRecord</title>
+        </head>
+        <body>
+            <style type="text/css">
+                body {
+                    background-image: url('wood-shelf-blurred-warehouse-background-1273060122.png');
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    background-size: 100%;
+                    /* background: rgba(76, 175, 80, 0.1) */
+                    }
+                #content{
+                            margin:0 auto;
+                            width:90%;
+                            height:800px;
+                            background-color:#b0c2f5; 
+                            border-radius: 5px;
+                            border: 1px solid rgb(127, 138, 137);
+                        }
+                #rowadd{
+                    /* visibility: collapse; */
+                    border-bottom: 2px solid rgb(199, 248, 246);
+                    font-size: 125%;
+                    position: relative;
+                    top: 10px;
+                    }
+                    tr.border-bottom th {
+                        border-bottom: 2px solid rgb(199, 248, 246);
+                        padding-bottom: 5px;
+                    }
+                #table{
+                    margin: auto;
+                    position: relative;
+                    top: 10px;
+                    width: 90%;
+                    font-size: 125%;
+                    border-top: 2px solid rgb(199, 248, 246);
+                    border-bottom: 2px solid rgb(199, 248, 246);
+                    padding: 10px 30px 10px 10px;
+                    z-index: 0;
+                }
+                #table2{
+                    margin: auto;
+                    position: relative;
+                    top: 10px;
+                    width: 90%;
+                    border-top: 2px solid rgb(199, 248, 246);
+                    border-bottom: 2px solid rgb(199, 248, 246);
+                    padding: 10px 60px 10px 20px
+                }
+                #textareatop{
+                        position: fixed;
+                        top: 55px;
+                        right: 0px;
+                        width: 200px;
+                        height: 22px;
+                        border-left :3px solid #73AD21;
+                        border-right :3px solid #73AD21;
+                        border-top :3px solid #73AD21;
+                        background: #ffe6e6;
+                        color:rgb(24, 24, 24);
+                        resize:none;
+                        font-family: Segoe UI;
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 17px;
+                        padding-bottom: 5px;
+                        padding-left: 5px;
+
+                        /* identical to box height */
+
+                        display: flex;
+                        text-align: center;
+                        margin: auto;
+                        z-index: 2;
+                    
+                }
+                #textarea{
+                        position: fixed;
+                        top: 80px;
+                        right: 0;
+                        width: 200px;
+                        height: 250px;
+                        border: 3px solid #73AD21;
+                        background: #010101;
+                        color:beige;
+                        resize:none;
+                        z-index: 2;
+                    
+                }
+                #topbutton{
+                    float: right;
+                }
+                #searchbutton{
+                    position: relative;
+                    width: 68px;
+                    height: 36px;
+                    right: 14px;
+                    top: 16px;
+
+                    float: right;
+                    background: rgba(238, 240, 241, 0.96);
+                    border: 1.5px solid rgb(127, 138, 137);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    color: rgba(19, 19, 19, 0.77); 
+                    cursor: pointer;
+                    outline: transparent!important;
+                    z-index: 1;
+                }
+                #scanbutton{
+                    position: absolute;
+                    width: 68px;
+                    height: 36px;
+                    left: 14px;
+                    top: 16px;
+
+                    background: rgba(238, 240, 241, 0.96);
+                    border: 1.5px solid rgb(127, 138, 137);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    color: rgba(19, 19, 19, 0.77); 
+                    cursor: pointer;
+                    outline: transparent!important;
+                    z-index: 1;
+                }
+                #endscanbutton{
+                    position: absolute;
+                    width: 68px;
+                    height: 36px;
+                    left: 14px;
+                    top: 60px;
+
+                    background: rgba(238, 240, 241, 0.96);
+                    border: 1.5px solid rgb(127, 138, 137);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    color: rgba(19, 19, 19, 0.77); 
+                    cursor: pointer;
+                    outline: transparent!important;
+                    z-index: 1;
+                }
+                #savefile{
+                    position: absolute;
+                    width: 68px;
+                    height: 36px;
+                    left: 14px;
+                    top: 104px;
+
+                    background: rgba(238, 240, 241, 0.96);
+                    border: 1.5px solid rgb(127, 138, 137);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    font-size: 12px;
+                    color: rgba(19, 19, 19, 0.77); 
+                    cursor: pointer;
+                    outline: transparent!important;
+                    z-index: 1;
+                }
+                #savefileexcel{
+                    position: absolute;
+                    width: 68px;
+                    height: 36px;
+                    left: 14px;
+                    top: 148px;
+                    font-size: 12px;
+
+                    background: rgba(238, 240, 241, 0.96);
+                    border: 1.5px solid rgb(127, 138, 137);
+                    box-sizing: border-box;
+                    border-radius: 5px;
+                    color: rgba(19, 19, 19, 0.77); 
+                    cursor: pointer;
+                    outline: transparent!important;
+                    z-index: 1;
+                }
+                #scanbutton:focus{
+                    background: rgba(128, 128, 128, 0.96);
+                    color: rgba(54, 54, 54, 0.77);
+                }
+                #onScan{
+                    display: none;
+                    z-index:2;
+                    
+                }
+                #head{
+                    height: fit-content;
+                    font-weight: 500;
+                    font-size: 200%;
+                    font-family: Arial, Helvetica, sans-serif;
+                    text-align: center;
+                    overflow: auto;
+                }
+                #thesearch{
+                    position: absolute;
+                    width: 468px;
+                    height: 336px;
+                    top: 118px;
+                    right:20px;
+                    align-self: center;
+                    border-radius: 5px;
+                    border: 1px solid #d6d6d6;
+                    background: rgb(122, 122, 122);
+                    margin:auto;
+                    z-index: 4;
+                    display:none;
+                }
+                #select{
+                    position: relative;;
+                    width: 200px;
+                    height: 25px;
+                    left: 20px;
+                    top: 20px;
+                    font-family: Segoe UI;
+                    background: rgba(247, 247, 247, 0.925);
+                    border: 1px solid #d6d6d6;
+                    /* border-radius: 3px; */
+                    box-sizing: border-box;
+                    color:#1b1b1b;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+                #refnum{
+                    position: relative;;
+                    width: 200px;
+                    height: 25px;
+                    left: 240px;
+                    top:-5px;
+                    font-family: Segoe UI;
+                    background: rgb(255, 255, 255);
+                    border: 1px solid #d6d6d6;
+                    box-sizing: border-box;
+                    color:#1b1b1b;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+                #startSearch{
+                    position: relative;
+                    width: 140px;
+                    height: 26px;
+                    left: 20px;
+                    top: -10px;
+
+                    background:rgba(247, 247, 247, 0.925);
+                    border: 1.5px solid #313131;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    color: #1b1b1b; 
+                    cursor: pointer;
+                    outline: transparent!important;
+                }
+                #endSearch{
+                    position: relative;
+                    width: 140px;
+                    height: 26px;
+                    left: -123px;
+                    top: 200px;
+
+                    background:rgba(247, 247, 247, 0.925);
+                    border: 1.5px solid #313131;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    color: #1b1b1b; 
+                    cursor: pointer;
+                    outline: transparent!important;
+                }
+                #saveSearch{
+                    position: relative;
+                    width: 140px;
+                    height: 26px;
+                    left: -113px;
+                    top: 200px;
+
+                    background:rgba(247, 247, 247, 0.925);
+                    border: 1.5px solid #313131;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                    color: #1b1b1b; 
+                    cursor: pointer;
+                    outline: transparent!important;
+                }
+            </style>
+
+    </head>
+    
+    <body id="all">
+        <div id="thesearch">
+            <select id="select" name="select">
+                <option value="MakeInquiryAbout">Choose Search Reference</option>
+                <option value="bySKU">by S K U</option>
+                <option value="byLOT">by LOT NUMBER</option>
+                <option value="byPALLET">by PALLET NUMBER</option>
+                <option value="byLOCATION">by LOCATION</option>
+                </select>
+                <input type="text" id="refnum" name="refnum" placeholder="Enter reference number" required><br>
+                <button type="submit" id="startSearch" value="startSearch" type="button">INITIATE SEARCH</button>
+                <button type="submit" id="endSearch" value="endSearch" type="button">END SEARCH</button>
+                <button type="submit" id="saveSearch" value="saveSearch" type="button">SAVE RESULT</button>
+        </div>
+        <div id="topbutton">
+        <button id="scanbutton" type="button" >START SCAN</button>
+        <button id="searchbutton" type="button" >SEARCH</button>
+        </div>
+        <button id="endscanbutton" type="button" >END SCAN</button>
+        <button id="savefile" type="button" >SAVE TO WORD</button>
+        <button id="savefileexcel" type="button" >SAVE TO EXCEL</button>
+        <div id= "onScan">
+            <div id="textareatop">Scan Log Console</div>
+            <textarea name="comment" form="usrform" id="textarea" ></textarea>
+        </div>
+        <div id="savecontent">
+            <div id="head">
+                <h4>SCAN <b>RECORD TABLE</b>.</h4>
+                <p>DATE : <b id = "RecordDate">________________</b>.</p>   
+            </div>
+            <div id="content">
+                <!-- <table id="table">
+                    <tr >
+                    <th>S/N</th>
+                    <th>S K U</th>
+                    <th>LOT NO.</th>
+                    <th>PALLET</th>
+                    <th>Location</th> 
+                    </tr>
+                </table> -->
+            
+                <table id="table2">
+                    <tr style="font-weight:bolder" class="border-bottom">
+                        <span id="rowadd">
+                            <th><b>S/N</b></th>
+                            <th><b>S K U</b></th>
+                            <th><b>LOT NO.</b></th>
+                            <th><b>PALLET NO.</b></th>
+                            <th><b>LOCATION</b></th> 
+                            <th><b>Time</b></th> 
+                        </span>
+                    </tr>
+                </table>
+
+
+
+                
+            </div>
+        </div>
+        <script src="app.js"></script>
+        <script src="index.js"></script>
+        </body>
+    </html>
