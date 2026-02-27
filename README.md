@@ -1,4 +1,4 @@
-# barcodeScanner (ScanRecord) — Warehouse Shelf Scan Logger (Electron)
+# barcodeScanner (ScanRecord) — Warehouse Shelf Scan Logger (Electron JS)
 
 A lightweight **desktop barcode scanning logger** built for warehouse/store operations to quickly **assign products to locations** (shelves/bins) using a barcode scanner — with a simple rule:
 
